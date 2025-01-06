@@ -1,20 +1,20 @@
 <?php
-    // $data = 'hola crtl user';
+    // $data = 'hola crtl course';
     // die('<script>console.log('.json_encode( $data ) .');</script>');
 
-    include ("module/user/model/DAOUser.php");
+    include ("module/course/model/DAOCourse.php");
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
     
     switch($_GET['op']){
         case 'list';
-            // $data = 'hola crtl user';
+            // $data = 'hola crtl course list';
             // die('<script>console.log('.json_encode( $data ) .');</script>');
               
             try{
-                $daouser = new DAOUser();
-            	$rdo = $daouser->select_all_user();
+                $daocourse = new DAOCourse();
+            	$rdo = $daocourse->select_all_courses();
                 //die('<script>console.log('.json_encode( $rdo->num_rows ) .');</script>');
             }catch (Exception $e){
                 $callback = 'index.php?page=503';
@@ -25,21 +25,21 @@
     			$callback = 'index.php?page=503';
 			    die('<script>window.location.href="'.$callback .'";</script>');
     		}else{
-                include("module/user/view/list_user.php");
+                include("module/course/view/list_course.php");
     		}
             break;
             
         case 'create';
-            // $data = 'hola crtl user create';
+            // $data = 'hola crtl course create';
             // die('<script>console.log('.json_encode( $data ) .');</script>');
             // die('<script>console.log('.json_encode( $_POST ) .');</script>');
 
-            include("module/user/model/validate.php");
+            include("module/course/model/validate.php");
             
             $check = true;
             
             if (isset($_POST['create'])){
-                // $data = 'hola create post user';
+                // $data = 'hola create post course';
                 // die('<script>console.log('.json_encode( $data ) .');</script>');
                 // die('<script>console.log('.json_encode( $_POST ) .');</script>');
 
@@ -49,8 +49,8 @@
                 if ($check){
                     // die('<script>console.log('.json_encode( $_POST ) .');</script>');
                     try{
-                        $daouser = new DAOUser();
-    		            $rdo = $daouser->insert_user($_POST);
+                        $daocourse = new DAOCourse();
+    		            $rdo = $daocourse->insert_course($_POST);
                         // die('<script>console.log('.json_encode( $rdo ) .');</script>');
                     }catch (Exception $e){
                         $callback = 'index.php?page=503';
@@ -62,7 +62,7 @@
                             toastr.success("Creado en la base de datos correctamente");
                         }, 1000);</script>';
                         echo '<script language="javascript">setTimeout(() => {
-                            window.location.href="index.php?page=controller_user&op=list";
+                            window.location.href="index.php?page=controller_course&op=list";
                         }, 2000);</script>';
             		}else{
             			$callback = 'index.php?page=503';
@@ -70,18 +70,18 @@
             		}
                 }
             }
-            include("module/user/view/create_user.php");
+            include("module/course/view/create_course.php");
             break;
             
         case 'update';
-            // $data = 'hola crtl user update';
+            // $data = 'hola crtl course update';
             // die('<script>console.log('.json_encode( $data ) .');</script>');
 
-            include("module/user/model/validate.php");
+            include("module/course/model/validate.php");
             $check = true;
             
             if (isset($_POST['update'])){
-                // $data = 'hola update post user';
+                // $data = 'hola update course user';
                 // die('<script>console.log('.json_encode( $data ) .');</script>');
                 // die('<script>console.log('.json_encode( $_POST ) .');</script>');
 
@@ -91,8 +91,8 @@
                 if ($check){
                     //die('<script>console.log('.json_encode( $_POST ) .');</script>');
                     try{
-                        $daouser = new DAOUser();
-    		            $rdo = $daouser->update_user($_POST);
+                        $daocourse = new DAOCourse();
+    		            $rdo = $daocourse->update_course($_POST);
                         //die('<script>console.log('.json_encode( $rdo ) .');</script>');
                     }catch (Exception $e){
                         $callback = 'index.php?page=503';
@@ -104,7 +104,7 @@
                             toastr.success("Modificado en la base de datos correctamente");
                         }, 1000);</script>';
                         echo '<script language="javascript">setTimeout(() => {
-                            window.location.href="index.php?page=controller_user&op=list";
+                            window.location.href="index.php?page=controller_course&op=list";
                         }, 2000);</script>';
             		}else{
             			$callback = 'index.php?page=503';
@@ -112,15 +112,15 @@
             		}
                 }else{
                     echo '<script language="javascript">setTimeout(() => {
-                        window.location.href="index.php?page=controller_user&op=list";
+                        window.location.href="index.php?page=controller_course&op=list";
                     }, 2000);</script>';
                 }
             }
             
             // die('<script>console.log('.json_encode( $_GET['id'] ) .');</script>');
             try{
-                $daouser = new DAOUser();
-            	$rdo = $daouser->select_user($_GET['id']);
+                $daocourse = new DAOCourse();
+            	$rdo = $daocourse->select_course($_GET['id']);
             	$user=get_object_vars($rdo);
             }catch (Exception $e){
                 $callback = 'index.php?page=503';
@@ -131,18 +131,18 @@
     			$callback = 'index.php?page=503';
     			die('<script>window.location.href="'.$callback .'";</script>');
     		}else{
-        	    include("module/user/view/update_user.php");
+        	    include("module/course/view/update_course.php");
     		}
             break;
             
         case 'read';
-            // $data = 'hola crtl user read';
+            // $data = 'hola crtl course read';
             // die('<script>console.log('.json_encode( $data ) .');</script>');
             // die('<script>console.log('.json_encode( $_GET['id'] ) .');</script>');
 
             try{
-                $daouser = new DAOUser();
-            	$rdo = $daouser->select_user($_GET['id']);
+                $daocourse = new DAOCourse();
+            	$rdo = $daocourse->select_course($_GET['id']);
             	$user=get_object_vars($rdo);
                 //die('<script>console.log('.json_encode( $user ) .');</script>');
             }catch (Exception $e){
@@ -153,20 +153,20 @@
     			$callback = 'index.php?page=503';
     			die('<script>window.location.href="'.$callback .'";</script>');
     		}else{
-                include("module/user/view/read_user.php");
+                include("module/course/view/read_course.php");
     		}
             break;
             
         case 'delete';
-            // $data = 'hola crtl user delete';
+            // $data = 'hola crtl course delete';
             // die('<script>console.log('.json_encode( $data ) .');</script>');
             // die('<script>console.log('.json_encode( $_GET['id'] ) .');</script>');
 
             if (isset($_POST['delete'])){
                 //die('<script>console.log('.json_encode( $_GET['id'] ) .');</script>');
                 try{
-                    $daouser = new DAOUser();
-                	$rdo = $daouser->delete_user($_GET['id']);
+                    $daocourse = new DAOCourse();
+                	$rdo = $daocourse->delete_course($_GET['id']);
                 }catch (Exception $e){
                     $callback = 'index.php?page=503';
     			    die('<script>window.location.href="'.$callback .'";</script>');
@@ -176,7 +176,7 @@
                         toastr.success("Borrado en la base de datos correctamente");
                     }, 1000);</script>';
                     echo '<script language="javascript">setTimeout(() => {
-                        window.location.href="index.php?page=controller_user&op=list";
+                        window.location.href="index.php?page=controller_course&op=list";
                     }, 2000);</script>';
         		}else{
         			$callback = 'index.php?page=503';
@@ -184,7 +184,7 @@
         		}
             }
             
-            include("module/user/view/delete_user.php");
+            include("module/course/view/delete_course.php");
             break;
         default;
             include("view/inc/error404.php");
