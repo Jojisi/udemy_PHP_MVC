@@ -4,9 +4,9 @@
 			$host = 'localhost';  
     		$user = "root";                     
     		$pass = "";                             
-    		$db = "crud_users";                      
+    		$db = "udemy";                      
     		$port = 3306;                           
-    		$tabla="usuario";
+    		$tabla="courses";
     		
     		$conexion = mysqli_connect($host, $user, $pass, $db, $port)or die();
 			return $conexion;
