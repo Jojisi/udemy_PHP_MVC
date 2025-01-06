@@ -8,11 +8,13 @@
 			$id_course=$datos['id_course'];
         	$name_course=$datos['name_course'];
         	$description_course=$datos['description_course'];
+            $category_course = ""; // Initialize variable
             foreach ($datos['category_course'] as $indice) {
         	    $category_course=$category_course."$indice:";
         	}
         	$level_course=$datos['level_course'];
         	$price_course=$datos['price_course'];
+            $language_course = ""; // Initialize variable
         	foreach ($datos['language_course'] as $indice) {
         	    $language_course=$language_course."$indice:";
         	}        	
@@ -57,11 +59,13 @@
 			$id_course=$datos['id_course'];
         	$name_course=$datos['name_course'];
         	$description_course=$datos['description_course'];
+            $category_course = ""; // Initialize variable
             foreach ($datos['category_course'] as $indice) {
         	    $category_course=$category_course."$indice:";
         	}
         	$level_course=$datos['level_course'];
         	$price_course=$datos['price_course'];
+            $language_course = ""; // Initialize variable
         	foreach ($datos['language_course'] as $indice) {
         	    $language_course=$language_course."$indice:";
         	}        	
