@@ -98,36 +98,28 @@ function validate_dateend_course(texto){
 
 
 function validate(){
-    // console.log('hi validate js');
-    // return false;
-
-    var check=true;
+        var check = true;
     
-    var v_id_course=document.getElementById('id_course').value;
-    // console.log(v_id_course);
-    // return false;
-    var v_name_course=document.getElementById('name_course').value;
-    var v_description_course=document.getElementById('description_course').value;
-    var v_category_course=document.getElementsById('category_course[]').value;
-    var v_level_course=document.getElementsByName('level_course[]');
-    var v_price_course=document.getElementById('price_course').value;
-    var v_language_course=document.getElementById('language_course').value;
-    var v_datestart_course=document.getElementById('datestart_course');
-    var v_dateend_course=document.getElementById('dateend_course').value;
+        var v_id_course = document.getElementById('id_course').value;
+        var v_name_course = document.getElementById('name_course').value;
+        var v_description_course = document.getElementById('description_course').value;
+        var v_category_course = document.getElementsByName('category_course[]');
+        var v_level_course = document.getElementsByName('level_course[]');
+        var v_price_course = document.getElementById('price_course').value;
+        var v_language_course = document.getElementById('language_course').value;
+        var v_datestart_course = document.getElementById('datestart_course').value;
+        var v_dateend_course = document.getElementById('dateend_course').value;
     
-    var r_id_course=validate_id_course(v_id_course);
-    // console.log(r_id_course);
-    // return false;
-    var r_name_course=validate_name_course(v_name_course);
-    var r_description_course=validate_description_course(v_description_course);
-    //var r_DNI=validate_DNI(v_DNI);
-    // var r_DNI=true;
-    var r_category_course=validate_category_course(v_category_course);
-    var r_level_course=validate_level_course(v_level_course);
-    var r_price_course=validate_price_course(v_price_course);
-    var r_language_course=validate_language_course(v_language_course);
-    var r_datestart_course=validate_datestart_course(v_datestart_course);
-    var r_dateend_course=validate_dateend_course(v_dateend_course);
+        // Validaciones
+        var r_id_course = validate_id_course(v_id_course);
+        var r_name_course = validate_name_course(v_name_course);
+        var r_description_course = validate_description_course(v_description_course);
+        var r_category_course = validate_category_course(v_category_course);
+        var r_level_course = validate_level_course(v_level_course);
+        var r_price_course = validate_price_course(v_price_course);
+        var r_language_course = validate_language_course(document.getElementsByName(v_language_course));
+        var r_datestart_course = validate_datestart_course(v_datestart_course);
+        var r_dateend_course = validate_dateend_course(v_dateend_course);
     
     if(!r_id_course){
         document.getElementById('error_id_course').innerHTML = " * El id_course introducido no es valido";
