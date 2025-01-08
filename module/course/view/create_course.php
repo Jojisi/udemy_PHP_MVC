@@ -103,8 +103,13 @@
 
             <tr>
                 <td>Language: </td>
-                <td><input type="radio" id="language_course" name="language_course" placeholder="language_course" value="English" />English
-                    <input type="radio" id="language_course" name="language_course" placeholder="language_course" value="Spanish" />Spanish
+                <td><label for="language_course_spanish">
+                        <input type="radio" name="language_course" value="Spanish" id="language_course_spanish"> Spanish
+                    </label>
+                    <label for="language_course_english">
+                        <input type="radio" name="language_course" value="English" id="language_course_english"> English
+                    </label>
+
                 </td>
                 <td>
                     <font color="red">
@@ -120,7 +125,7 @@
 
             <tr>
                 <td>Start date: </td>
-                <td><input id="datestart_course" type="text" name="datestart_course" placeholder="start date of the course" value="" /></td>
+                <td><input id="datestart_course" type="date" name="datestart_course" placeholder="start date of the course" value="" /></td>
                 <td>
                     <font color="red">
                         <span id="error_datestart_course" class="error">
@@ -135,7 +140,7 @@
 
             <tr>
                 <td>End date: </td>
-                <td><input id="dateend_course" type="text" name="dateend_course" placeholder="end date of the course" value="" /></td>
+                <td><input id="dateend_course" type="date" name="dateend_course" placeholder="end date of the course" value="" /></td>
                 <td>
                     <font color="red">
                         <span id="error_dateend_course" class="error">
