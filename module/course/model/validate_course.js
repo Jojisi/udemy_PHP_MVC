@@ -97,11 +97,11 @@ function validate() {
   var v_level_course = document.getElementsByName("level_course[]");
   var v_price_course = document.getElementById("price_course").value;
   var v_language_course = '';
-  var radios = document.getElementsByName('language_course'); // 'language_course' es el nombre de los radio buttons
+  var radios = document.getElementsByName('language_course');
   for (var i = 0; i < radios.length; i++) {
       if (radios[i].checked) {
-          v_language_course = radios[i].value; // Asigna el valor del idioma seleccionado
-          break; // Detén el bucle una vez que encontramos el valor seleccionado
+          v_language_course = radios[i].value;
+          break;
       }
   }
   

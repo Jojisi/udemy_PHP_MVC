@@ -1,7 +1,94 @@
+<?php
+$error_id_course = "";
+$error_name_course = "";
+$error_description_course = "";
+$error_category_course = "";
+$error_level_course = "";
+$error_price_course = "";
+$error_language_course = "";
+$error_datestart_course = "";
+$error_dateend_course = "";
+?>
 <div id="contenido">
     <form autocomplete="on" method="post" name="alta_course" id="alta_course"
         onsubmit="return validate();" action="index.php?page=controller_course&op=create">
         <h1>New Course</h1>
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        #contenido {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 600px;
+            margin: 40px auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-spacing: 10px;
+        }
+
+        td:first-child {
+            text-align: right;
+            font-weight: bold;
+            color: #333;
+            padding-right: 10px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        input[type="submit"] {
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background: #0056b3;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
         <table border='0'>
             <tr>
                 <td>Course ID: </td>
