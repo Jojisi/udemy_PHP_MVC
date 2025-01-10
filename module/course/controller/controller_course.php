@@ -121,7 +121,7 @@
             try{
                 $daocourse = new DAOCourse();
             	$rdo = $daocourse->select_course($_GET['id']);
-            	$user=get_object_vars($rdo);
+            	$id_course=get_object_vars($rdo);
             }catch (Exception $e){
                 $callback = 'index.php?page=503';
 			    die('<script>window.location.href="'.$callback .'";</script>');

@@ -1,10 +1,21 @@
+<?php
+$error_id_course = "";
+$error_name_course = "";
+$error_description_course = "";
+$error_category_course = "";
+$error_level_course = "";
+$error_price_course = "";
+$error_language_course = "";
+$error_datestart_course = "";
+$error_dateend_course = "";
+?>
 <div id="contenido">
     <form autocomplete="on" method="post" name="update_course" id="update_course" onsubmit="return validate();" action="index.php?page=controller_course&op=update">
         <h1>Modify Course</h1>
         <table border='0'>
             <tr>
                 <td>Course ID: </td>
-                <td><input type="text" id="id_course" name="id_course" placeholder="course ID" value="<?php echo $id_course['id_course'];?>" readonly/></td>
+                <td><input type="hidden" name="id_course" value="<?php echo $course['id_course']; ?>"></td>
                 <td><font color="red">
                     <span id="error_id_course" class="error">
                         <?php

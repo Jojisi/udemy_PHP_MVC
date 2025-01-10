@@ -67,20 +67,22 @@ class DAOCourse
 		$id_course = $datos['id_course'];
 		$name_course = $datos['name_course'];
 		$description_course = $datos['description_course'];
-		$category_course = ""; // Initialize variable
-		foreach ($datos['category_course'] as $indice) {
-			$category_course = $category_course . "$indice:";
+		$category_course = "";
+		if (isset($datos['category_course']) && is_array($datos['category_course'])) {
+			$category_course = implode(":", $datos['category_course']);
 		}
-		$level_course = $datos['level_course'];
+		$level_course = "";
+		if (isset($datos['level_course']) && is_array($datos['level_course'])) {
+			$level_course = implode(":", $datos['level_course']);
+		}
 		$price_course = $datos['price_course'];
-		$language_course = ""; // Initialize variable
-		foreach ($datos['language_course'] as $indice) {
-			$language_course = $language_course . "$indice:";
-		}
+		// Asegúrate de que 'language_course' se está recibiendo
+		$language_course = isset($_POST['language_course']) ? $_POST['language_course'] : '';
+
 		$datestart_course = $datos['datestart_course'];
 		$dateend_course = $datos['dateend_course'];
 
-		$sql = " UPDATE courses SET name_course='$name_course', description_course='$description_course', category_course='$category_course', level_course='$level_course', price_course='$price_course', price_course='$price_course',"
+		$sql = " UPDATE courses SET name_course='$name_course', description_course='$description_course', category_course='$category_course', level_course='$level_course', price_course='$price_course', "
 			. " language_course='$language_course', datestart_course='$datestart_course', dateend_course='$dateend_course' WHERE id_course='$id_course'";
 
 		$conexion = connect::con();

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 03, 2025 at 01:31 PM
+-- Generation Time: Jan 10, 2025 at 04:28 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.12
 
@@ -39,6 +39,34 @@ CREATE TABLE `courses` (
   `datestart_course` varchar(100) NOT NULL,
   `dateend_course` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `courses`
+--
+
+INSERT INTO `courses` (`id`, `id_course`, `name_course`, `description_course`, `category_course`, `level_course`, `price_course`, `language_course`, `datestart_course`, `dateend_course`) VALUES
+(11, 111, 'JavaPro', 'adgasdgasgasg', 'Java', 'Beginner', 100, 'Spanish', '2020-10-01', '2020-10-10'),
+(12, 123, 'JavaPro3', 'fcgycghkhkcg', 'Java:CSS', 'Beginner', 100, 'Spanish', '2020-10-01', '2020-10-10');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `courses`
+--
+ALTER TABLE `courses`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `courses`
+--
+ALTER TABLE `courses`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
