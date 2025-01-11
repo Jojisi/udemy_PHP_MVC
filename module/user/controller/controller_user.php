@@ -3,9 +3,7 @@
     // die('<script>console.log('.json_encode( $data ) .');</script>');
 
     include ("module/user/model/DAOUser.php");
-    if (session_status() === PHP_SESSION_NONE) {
         session_start();
-    }
     
     switch($_GET['op']){
         case 'list';

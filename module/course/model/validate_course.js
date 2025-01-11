@@ -1,6 +1,7 @@
 function validate_id_course(texto) {
-  if (texto.length > 0) {
-    var reg = /^[a-zA-Z]*$/;
+  if (texto.length === 3) {
+    // Aseguramos que el texto tenga exactamente 3 caracteres
+    var reg = /^[0-9]{3}$/; // Acepta solo 3 dígitos
     return reg.test(texto);
   }
   return false;
@@ -58,10 +59,10 @@ function validate_price_course(texto) {
 }
 
 function validate_language_course(texto) {
-    if (texto && texto.length > 0) {
-        return true; // Se ha seleccionado un idioma
-    }
-    return false; // No se ha seleccionado ningún idioma
+  if (texto && texto.length > 0) {
+    return true; // Se ha seleccionado un idioma
+  }
+  return false; // No se ha seleccionado ningún idioma
 }
 
 function validate_datestart_course(texto) {
@@ -96,15 +97,15 @@ function validate() {
   var v_category_course = document.getElementsByName("category_course[]");
   var v_level_course = document.getElementsByName("level_course[]");
   var v_price_course = document.getElementById("price_course").value;
-  var v_language_course = '';
-  var radios = document.getElementsByName('language_course');
+  var v_language_course = "";
+  var radios = document.getElementsByName("language_course");
   for (var i = 0; i < radios.length; i++) {
-      if (radios[i].checked) {
-          v_language_course = radios[i].value;
-          break;
-      }
+    if (radios[i].checked) {
+      v_language_course = radios[i].value;
+      break;
+    }
   }
-  
+
   var v_datestart_course = document.getElementById("datestart_course").value;
   var v_dateend_course = document.getElementById("dateend_course").value;
 
@@ -143,14 +144,14 @@ function validate() {
     document.getElementById("error_description_course").innerHTML = "";
   }
   if (!r_category_course) {
-    document.getElementById("error_category_course").innerHTML =
+    document.getElementsByName("error_category_course").innerHTML =
       " * El category_course introducido no es valido";
     check = false;
   } else {
     document.getElementById("error_category_course").innerHTML = "";
   }
   if (!r_level_course) {
-    document.getElementById("error_level_course").innerHTML =
+    document.getElementsByName("error_level_course").innerHTML =
       " * No has seleccionado ningun genero";
     check = false;
   } else {
@@ -164,7 +165,7 @@ function validate() {
     document.getElementById("error_price_course").innerHTML = "";
   }
   if (!r_language_course) {
-    document.getElementById("error_language_course").innerHTML =
+    document.getElementsByName("error_language_course").innerHTML =
       " * La edad introducida no es valida";
     check = false;
   } else {

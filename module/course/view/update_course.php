@@ -15,7 +15,7 @@ $error_dateend_course = "";
         <table border='0'>
             <tr>
                 <td>Course ID: </td>
-                <td><input type="hidden" name="id_course" value="<?php echo $course['id_course']; ?>"></td>
+                <td><input type="text" id="id_course" name="id_course" placeholder="id_course" value="<?php echo $id_course['id_course'];?>"/></td>
                 <td><font color="red">
                     <span id="error_id_course" class="error">
                         <?php
