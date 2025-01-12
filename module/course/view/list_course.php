@@ -4,7 +4,7 @@
     			<h3>COURSES LIST</h3>
     	</div>
     	<div class="row">
-    		<p><a href="index.php?page=controller_course&op=create"><img src="view/img/anadir.png"></a></p>
+    		<p><a href="index.php?page=controller_course&op=create"><img src="view/img/add_button.png"></a></p>
     		
     		<table>
                 <tr>

@@ -1,1 +1,1 @@
-<img src="view/img/bienvenido.png">
+<img src="view/img/portada.webp " alt="portada" style="width: 100%; height: 100%;">
