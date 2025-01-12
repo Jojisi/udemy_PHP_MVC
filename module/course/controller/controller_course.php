@@ -47,6 +47,7 @@
                 //die('<script>console.log('.json_encode( $check ) .');</script>');
 
                 if ($check){
+                    $_SESSION['course'] = $_POST;
                     // die('<script>console.log('.json_encode( $_POST ) .');</script>');
                     try{
                         $daocourse = new DAOCourse();
