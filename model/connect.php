@@ -2,13 +2,13 @@
 	class connect{
 		public static function con(){
 			$host = 'localhost';  
-    		$user = "root";                     
+    		$course = "root";                     
     		$pass = "";                             
     		$db = "udemy";                      
     		$port = 3306;                           
     		$tabla="courses";
     		
-    		$conexion = mysqli_connect($host, $user, $pass, $db, $port)or die();
+    		$conexion = mysqli_connect($host, $course, $pass, $db, $port)or die();
 			return $conexion;
 		}
 		public static function close($conexion){

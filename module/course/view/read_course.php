@@ -9,55 +9,55 @@
             <tr>
                 <td style="padding: 12px; border-bottom: 1px solid #ddd;">Course ID:</td>
                 <td style="padding: 12px; border-bottom: 1px solid #ddd;">
-                    <?php echo $id_course['id_course']; ?>
+                    <?php echo $course['id_course']; ?>
                 </td>
             </tr>
             <tr>
                 <td style="padding: 12px; border-bottom: 1px solid #ddd;">Name:</td>
                 <td style="padding: 12px; border-bottom: 1px solid #ddd;">
-                    <?php echo $id_course['name_course']; ?>
+                    <?php echo $course['name_course']; ?>
                 </td>
             </tr>
             <tr>
                 <td style="padding: 12px; border-bottom: 1px solid #ddd;">Description:</td>
                 <td style="padding: 12px; border-bottom: 1px solid #ddd;">
-                    <?php echo $id_course['description_course']; ?>
+                    <?php echo $course['description_course']; ?>
                 </td>
             </tr>
             <tr>
                 <td style="padding: 12px; border-bottom: 1px solid #ddd;">Category:</td>
                 <td style="padding: 12px; border-bottom: 1px solid #ddd;">
-                    <?php echo $id_course['category_course']; ?>
+                    <?php echo $course['category_course']; ?>
                 </td>
             </tr>
             <tr>
                 <td style="padding: 12px; border-bottom: 1px solid #ddd;">Level:</td>
                 <td style="padding: 12px; border-bottom: 1px solid #ddd;">
-                    <?php echo $id_course['level_course']; ?>
+                    <?php echo $course['level_course']; ?>
                 </td>
             </tr>
             <tr>
                 <td style="padding: 12px; border-bottom: 1px solid #ddd;">Price:</td>
                 <td style="padding: 12px; border-bottom: 1px solid #ddd;">
-                    <?php echo $id_course['price_course']; ?>
+                    <?php echo $course['price_course']; ?>
                 </td>
             </tr>
             <tr>
                 <td style="padding: 12px; border-bottom: 1px solid #ddd;">Language:</td>
                 <td style="padding: 12px; border-bottom: 1px solid #ddd;">
-                    <?php echo $id_course['language_course']; ?>
+                    <?php echo $course['language_course']; ?>
                 </td>
             </tr>
             <tr>
                 <td style="padding: 12px; border-bottom: 1px solid #ddd;">Start date:</td>
                 <td style="padding: 12px; border-bottom: 1px solid #ddd;">
-                    <?php echo $id_course['datestart_course']; ?>
+                    <?php echo $course['datestart_course']; ?>
                 </td>
             </tr>
             <tr>
                 <td style="padding: 12px;">End date:</td>
                 <td style="padding: 12px;">
-                    <?php echo $id_course['dateend_course']; ?>
+                    <?php echo $course['dateend_course']; ?>
                 </td>
             </tr>
         </table>

@@ -15,7 +15,7 @@ $error_dateend_course = "";
         <table border='0'>
             <tr>
                 <td>Course ID: </td>
-                <td><input type="text" id="id_course" name="id_course" placeholder="id_course" value="<?php echo $id_course['id_course'];?>"/></td>
+                <td><input type="text" id="id_course" name="id_course" placeholder="id_course" value="<?php echo $course['id_course'];?>"/></td>
                 <td><font color="red">
                     <span id="error_id_course" class="error">
                         <?php
@@ -27,7 +27,7 @@ $error_dateend_course = "";
         
             <tr>
                 <td>Name: </td>
-                <td><input type="text" id="name_course" name="name_course" placeholder="name of the course" value="<?php echo $id_course['name_course'];?>"/></td>
+                <td><input type="text" id="name_course" name="name_course" placeholder="name of the course" value="<?php echo $course['name_course'];?>"/></td>
                 <td><font color="red">
                     <span id="error_name_course" class="error">
                         <?php
@@ -39,7 +39,7 @@ $error_dateend_course = "";
 
             <tr>
                 <td>Description: </td>
-                <td><textarea cols="30" rows="5" id="description_course" name="description_course" placeholder="what's the course about"><?php echo $id_course['description_course'];?></textarea></td>
+                <td><textarea cols="30" rows="5" id="description_course" name="description_course" placeholder="what's the course about"><?php echo $course['description_course'];?></textarea></td>
                 <td><font color="red">
                     <span id="error_description_course" class="error">
                         <?php
@@ -52,7 +52,7 @@ $error_dateend_course = "";
             <tr>
                 <td>Category: </td>
                 <?php
-                    $cat_course=explode(":", $id_course['category_course']);
+                    $cat_course=explode(":", $course['category_course']);
                 ?>
                 <td>
                     <?php
@@ -104,7 +104,7 @@ $error_dateend_course = "";
             <tr>
                 <td>Level: </td>
                 <?php
-                    $lvl_course=explode(":", $id_course['level_course']);
+                    $lvl_course=explode(":", $course['level_course']);
                 ?>
                 <td><select multiple size="3" id="level_course[]" name="level_course[]" placeholder="level_course">
                     <?php
@@ -135,7 +135,7 @@ $error_dateend_course = "";
                         $busca_array=in_array("Intermediate", $lvl_course);
                         if($busca_array){
                     ?>
-                        <option value="Intermediate" Intermediate>Portugues</option>
+                        <option value="Intermediate" selected>Intermediate</option>
                     <?php
                         }else{
                     ?>
@@ -167,7 +167,7 @@ $error_dateend_course = "";
 
             <tr>
                 <td>Price: </td>
-                <td><input type="text" id="price_course" name="price_course" placeholder="price of the course" value="<?php echo $id_course['price_course'];?>"/></td>
+                <td><input type="text" id="price_course" name="price_course" placeholder="price of the course" value="<?php echo $course['price_course'];?>"/></td>
                 <td><font color="red">
                     <span id="error_price_course" class="error">
                         <?php
@@ -181,7 +181,7 @@ $error_dateend_course = "";
                 <td>Language: </td>
                 <td>
                     <?php
-                        if ($id_course['language_course']==="Hombre"){
+                        if ($course['language_course']==="Hombre"){
                     ?>
                         <input type="radio" id="language_course" name="language_course" placeholder="language_course" value="English" checked/>English
                         <input type="radio" id="language_course" name="language_course" placeholder="language_course" value="Spanish"/>Spanish
@@ -206,7 +206,7 @@ $error_dateend_course = "";
             
             <tr>
                 <td>Sart date: </td>
-                <td><input id="datestart_course" type="text" name="datestart_course" placeholder="start date of the course" value="<?php echo $id_course['datestart_course'];?>"/></td>
+                <td><input id="datestart_course" type="text" name="datestart_course" placeholder="start date of the course" value="<?php echo $course['datestart_course'];?>"/></td>
                 <td><font color="red">
                     <span id="error_datestart_course" class="error">
                         <?php
@@ -218,7 +218,7 @@ $error_dateend_course = "";
 
             <tr>
                 <td>End date: </td>
-                <td><input id="dateend_course" type="text" name="dateend_course" placeholder="end date of the course" value="<?php echo $id_course['dateend_course'];?>"/></td>
+                <td><input id="dateend_course" type="text" name="dateend_course" placeholder="end date of the course" value="<?php echo $course['dateend_course'];?>"/></td>
                 <td><font color="red">
                     <span id="error_dateend_course" class="error">
                         <?php
