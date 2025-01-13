@@ -74,7 +74,7 @@
         padding: 10px 20px;
         border: none;
         border-radius: 5px;
-        background-color: #4CAF50;
+        background-color:rgb(46, 202, 51);
         color: white;
         text-align: center;
         width: 100%;
@@ -100,6 +100,10 @@
         max-width: 160px;
         text-decoration: none;
         display: inline-block;
+    }
+
+    .Button_green:hover {
+        background-color: #45a049;
     }
 
     .Button_red:hover {

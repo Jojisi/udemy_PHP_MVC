@@ -115,19 +115,19 @@ class DAOCourse
 		$sql = "DELETE FROM courses;";
 	
 		$sql .= "INSERT INTO courses (id_course, name_course, description_course, category_course, level_course, price_course, language_course, datestart_course, dateend_course)"
-		. " VALUES (101, 'JavaBasics', 'Introduction to Java programming', 'java', 'rookie', 50, 'english', '01/02/2025', '01/03/2025');";
+		. " VALUES (101, 'JavaBasics', 'Introduction to Java programming', 'Java', 'Rookie', 50, 'English', '01-02-2025', '01-03-2025');";
 	
 		$sql .= "INSERT INTO courses (id_course, name_course, description_course, category_course, level_course, price_course, language_course, datestart_course, dateend_course)"
-		. " VALUES (202, 'HtmlForBeginners', 'Basic HTML concepts and structure', 'html', 'beginner', 30, 'spanish', '10/02/2025', '10/03/2025');";
+		. " VALUES (202, 'HtmlForBeginners', 'Basic HTML concepts and structure', 'HTML', 'Beginner', 30, 'Spanish', '10-02-2025', '10-03-2025');";
 	
 		$sql .= "INSERT INTO courses (id_course, name_course, description_course, category_course, level_course, price_course, language_course, datestart_course, dateend_course)"
-		. " VALUES (303, 'CssStyling', 'Master CSS styles for modern web design', 'css', 'intermediate', 40, 'english', '15/02/2025', '15/04/2025');";
+		. " VALUES (303, 'CssStyling', 'Master CSS styles for modern web design', 'CSS', 'Intermediate', 40, 'English', '15-02-2025', '15-04-2025');";
 	
 		$sql .= "INSERT INTO courses (id_course, name_course, description_course, category_course, level_course, price_course, language_course, datestart_course, dateend_course)"
-		. " VALUES (404, 'AdvancedJava', 'Deep dive into advanced Java topics', 'java', 'advanced', 70, 'spanish', '01/03/2025', '01/06/2025');";
+		. " VALUES (404, 'AdvancedJava', 'Deep dive into advanced Java topics', 'Java', 'Advanced', 70, 'Spanish', '01-03-2025', '01-06-2025');";
 	
 		$sql .= "INSERT INTO courses (id_course, name_course, description_course, category_course, level_course, price_course, language_course, datestart_course, dateend_course)"
-		. " VALUES (505, 'HtmlCssFusion', 'Integrating HTML and CSS for professional designs', 'html', 'intermediate', 60, 'english', '20/02/2025', '20/05/2025');";
+		. " VALUES (505, 'HtmlCssFusion', 'Integrating HTML and CSS for professional designs', 'HTML', 'Intermediate', 60, 'English', '20-02-2025', '20-05-2025');";
 	
 		$conexion = connect::con();
 		$res = mysqli_multi_query($conexion, $sql);

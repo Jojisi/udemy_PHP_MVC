@@ -4,8 +4,8 @@
     			<h3>COURSES LIST</h3>
     	</div>
     	<div class="row">
-    		<a href="index.php?page=controller_course&op=create"><img src="view/img/add_button.png"></a>⠀⠀<a href="index.php?page=controller_course&op=delete_all"><img src="view/img/delete_all.png"></a>⠀⠀
-            <a href="index.php?page=controller_course&op=dummies"><img src="view/img/dummies.png"></a></p>
+    		<a href="index.php?page=controller_course&op=create"><img src="view/img/add_button.png"></a>⠀⠀<a href="index.php?page=controller_course&op=delete_all"><img src="view/img/delete_all_icon.png"></a>⠀⠀
+            <a href="index.php?page=controller_course&op=dummies"><img src="view/img/dummies_container.png"></a></p>
     		
     		<table>
                 <tr>
