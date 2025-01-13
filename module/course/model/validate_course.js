@@ -41,10 +41,10 @@ function validate_category_course(array) {
 
 function validate_level_course(array) {
   var check = false;
-  for (var i = 0, l = array.options.length, o; i < l; i++) {
-    o = array.options[i];
-    if (o.selected) {
+  for (var i = 0; i < array.length; i++) {
+    if (array[i].checked) {
       check = true;
+      break;
     }
   }
   return check;
@@ -87,7 +87,7 @@ function validate_dateend_course(texto) {
 //     return false;
 // }
 
-function validate() {
+function validate(op) {
   // cambiar a validate(op) porque hay que cambiar los formularios de udpate y create, el boton ya no es update, es button y redirige a aqui
   var check = true;
 
@@ -186,16 +186,18 @@ function validate() {
   } else {
     document.getElementById("error_dateend_course").innerHTML = "";
   }
-  return check;
+  // return check;
+
   // quitar el return y gracias a cambiar los botones hay que hacer if check
-//   if (check){
-//     if (op == 'create'){
-//         document.getElementById('alta_course').submit();
-//         document.getElementById('alta_course').action = "index.php?page=controller_course&op=create";
-//     }
-//     if (op == 'update'){
-//         document.getElementById('update_course').submit();
-//         document.getElementById('update_course').action = "index.php?page=controller_course&op=update";
-//     }
-// }
+  if (check){
+    if (op == 'create'){
+      document.getElementsByName('alta_course').submit();
+      document.getElementsByName('alta_course').action = "index.php?page=controller_course&op=create";
+      
+    }
+    if (op == 'update'){
+        document.getElementById('update_course').submit();
+        document.getElementById('update_course').action = "index.php?page=controller_course&op=update";
+    }
+}
 }

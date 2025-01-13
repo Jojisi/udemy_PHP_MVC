@@ -10,85 +10,86 @@ $error_datestart_course = "";
 $error_dateend_course = "";
 ?>
 <div id="contenido">
-    <form autocomplete="on" method="post" name="alta_course" id="alta_course"
-        onsubmit="return validate();" action="index.php?page=controller_course&op=create">
+    <!-- <form autocomplete="on" method="post" name="alta_course" id="alta_course"> -->
+    <form id="alta_course" method="post">
+        <!-- onsubmit="return validate();" action="index.php?page=controller_course&op=create" -->
         <h1>New Course</h1>
         <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #cecece;
-            margin: 0;
-            padding: 0;
-        }
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #cecece;
+                margin: 0;
+                padding: 0;
+            }
 
-        #contenido {
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 600px;
-            margin: 40px auto;
-        }
+            #contenido {
+                background: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                width: 600px;
+                margin: 40px auto;
+            }
 
-        h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 20px;
-        }
+            h1 {
+                text-align: center;
+                color: #333;
+                margin-bottom: 20px;
+            }
 
-        table {
-            width: 100%;
-            border-spacing: 10px;
-        }
+            table {
+                width: 100%;
+                border-spacing: 10px;
+            }
 
-        td:first-child {
-            text-align: right;
-            font-weight: bold;
-            color: #333;
-            padding-right: 10px;
-        }
+            td:first-child {
+                text-align: right;
+                font-weight: bold;
+                color: #333;
+                padding-right: 10px;
+            }
 
-        input[type="text"],
-        input[type="date"],
-        textarea,
-        select {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 14px;
-        }
+            input[type="text"],
+            input[type="date"],
+            textarea,
+            select {
+                width: 100%;
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 14px;
+            }
 
-        input[type="submit"] {
-            background: #004aad;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            padding: 10px;
-            cursor: pointer;
-            font-size: 16px;
-            width: 100%;
-        }
+            input[type="submit"] {
+                background: #004aad;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                padding: 10px;
+                cursor: pointer;
+                font-size: 16px;
+                width: 100%;
+            }
 
-        input[type="submit"]:hover {
-            background: #004aad;
-        }
+            input[type="submit"]:hover {
+                background: #004aad;
+            }
 
-        a {
-            color: #007bff;
-            text-decoration: none;
-            font-size: 14px;
-        }
+            a {
+                color: #007bff;
+                text-decoration: none;
+                font-size: 14px;
+            }
 
-        a:hover {
-            text-decoration: underline;
-        }
+            a:hover {
+                text-decoration: underline;
+            }
 
-        .error {
-            color: red;
-            font-size: 12px;
-        }
-    </style>
+            .error {
+                color: red;
+                font-size: 12px;
+            }
+        </style>
         <table border='0'>
             <tr>
                 <td>Course ID: </td>
@@ -241,9 +242,29 @@ $error_dateend_course = "";
             </tr>
 
             <tr>
-                <td><input type="submit" name="create" id="create" /></td>
+                <!-- <td><input type="submit" name="create" id="create" /></td> -->
+                <td><input type="button" id="create" onclick="console.log('Button clicked'); validate('create')" style="width: 100%; padding: 10px; background-color: #004aad; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;" value="Create"></td>
+                <!-- <button type="button" onclick="console.log('Button clicked'); validate('create')">Create Course</button> -->
                 <td align="right"><a href="index.php?page=controller_course&op=list">Go back</a></td>
             </tr>
         </table>
     </form>
 </div>
+
+<script>
+  function validate(op) {
+    console.log("Button clicked");
+    var check = true;
+    var v_id_course = document.getElementById("id_course").value;
+    if (v_id_course.length == 0) {
+      console.log("ID is empty");
+      check = false;
+    }
+    if (check) {
+      console.log("Validation passed");
+      document.getElementById('alta_course').submit();
+    } else {
+      console.log("Validation failed");
+    }
+  }
+</script>

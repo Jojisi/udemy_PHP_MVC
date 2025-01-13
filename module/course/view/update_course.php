@@ -10,7 +10,8 @@ $error_datestart_course = "";
 $error_dateend_course = "";
 ?>
 <div id="contenido">
-    <form autocomplete="on" method="post" name="update_course" id="update_course" onsubmit="return validate();" action="index.php?page=controller_course&op=update">
+    <form autocomplete="on" method="post" name="update_course" id="update_course">
+    <!-- onsubmit="return validate();" action="index.php?page=controller_course&op=update"> -->
         <h1>Modify Course</h1>
                 <style>
         body {
@@ -305,7 +306,8 @@ $error_dateend_course = "";
             </tr>
 
             <tr>
-                <td><input type="submit" name="update" id="update"/></td>
+                <!-- <td><input type="submit" name="update" id="update"/></td> -->
+                <td><input type="button" name="update" id="update" onclick="validate('update')" value="Update" /></td>
                 <td align="right"><a href="index.php?page=controller_course&op=list">Go back</a></td>
             </tr>
         </table>
