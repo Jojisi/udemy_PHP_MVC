@@ -1,8 +1,8 @@
 /* General Styles */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #F0F0FF;
-    background-image: url(../img/agua.jpeg);
+    background-color: #cecece;
+    /* background-image: url(../img/agua.jpeg); */
     background-attachment: fixed;
     background-repeat: no-repeat;
     margin: 0;
@@ -31,7 +31,7 @@ h1 {
 /* Header */
 #header {
     height: 120px;
-    background-image: url(../img/banner.png);
+    background-image: url(../img/topbanner.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

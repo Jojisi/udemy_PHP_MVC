@@ -15,7 +15,7 @@ $error_dateend_course = "";
                 <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            background-color: #cecece;
             margin: 0;
             padding: 0;
         }
@@ -59,7 +59,7 @@ $error_dateend_course = "";
         }
 
         input[type="submit"] {
-            background: #007bff;
+            background: #004aad;
             color: #fff;
             border: none;
             border-radius: 5px;
@@ -70,7 +70,7 @@ $error_dateend_course = "";
         }
 
         input[type="submit"]:hover {
-            background: #0056b3;
+            background: #004aad;
         }
 
         a {

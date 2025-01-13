@@ -12,7 +12,11 @@
                     <td width=125><b>Name</b></th>
                     <td width=125><b>Category</b></th>
                     <td width=125><b>Level</b></th>
+                    <td width=125><b>Price</b></th>
+                    <td width=125><b>Language</b></th>
                     <th width=350><b>ACTION</b></th>
+
+                    <!-- price y language -->
                 </tr>
                 <?php
                     if ($rdo->num_rows === 0){
@@ -26,6 +30,8 @@
                     	   	echo '<td width=125>'. $row['name_course'] . '</td>';
                     	   	echo '<td width=125>'. $row['category_course'] . '</td>';
                             echo '<td width=125>'. $row['level_course'] . '</td>';
+                            echo '<td width=125>'. $row['price_course'] . ' €</td>';
+                            echo '<td width=125>'. $row['language_course'] . '</td>';
                     	   	echo '<td width=350>';
                     	   	echo '<a class="Button_blue" href="index.php?page=controller_course&op=read&id='.$row['id_course'].'">Read</a>';
                     	   	echo '&nbsp;';

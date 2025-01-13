@@ -2,7 +2,7 @@
     <h1 style="text-align: center; color: #333;">Course Information</h1>
     <div style="margin: 20px auto; max-width: 600px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); border-radius: 8px; overflow: hidden;">
         <table style="width: 100%; border-collapse: collapse; font-size: 16px; color: #333;">
-            <tr style="background-color: #f4f4f4;">
+            <tr style="    background-color: #cecece;">
                 <th style="text-align: left; padding: 12px; border-bottom: 1px solid #ddd;">Field</th>
                 <th style="text-align: left; padding: 12px; border-bottom: 1px solid #ddd;">Value</th>
             </tr>
@@ -39,7 +39,7 @@
             <tr>
                 <td style="padding: 12px; border-bottom: 1px solid #ddd;">Price:</td>
                 <td style="padding: 12px; border-bottom: 1px solid #ddd;">
-                    <?php echo $course['price_course']; ?>
+                    <?php echo $course['price_course'] . ' €'; ?>
                 </td>
             </tr>
             <tr>
