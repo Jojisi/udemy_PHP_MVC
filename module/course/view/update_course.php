@@ -307,9 +307,28 @@ $error_dateend_course = "";
 
             <tr>
                 <!-- <td><input type="submit" name="update" id="update"/></td> -->
-                <td><input type="button" name="update" id="update" onclick="validate('update')" value="Update" /></td>
+                <td><input type="button" id="update" onclick="console.log('Button clicked'); validate('update')" style="width: 100%; padding: 10px; background-color: #004aad; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;" value="Modify"></td>
+                <!-- <td><input type="button" name="update" id="update" onclick="validate('update')" value="Update" /></td> -->
                 <td align="right"><a href="index.php?page=controller_course&op=list">Go back</a></td>
             </tr>
         </table>
     </form>
 </div>
+
+<script>
+  function validate(op) {
+    console.log("Button clicked");
+    var check = true;
+    var v_id_course = document.getElementById("id_course").value;
+    if (v_id_course.length == 0) {
+      console.log("ID is empty");
+      check = false;
+    }
+    if (check) {
+      console.log("Validation passed");
+      document.getElementById('update_course').submit();
+    } else {
+      console.log("Validation failed");
+    }
+  }
+</script>
