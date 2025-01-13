@@ -201,3 +201,20 @@ function validate(op) {
     }
 }
 }
+
+function validate_others(op) {
+
+  if (op == 'delete') {
+      document.getElementById('delete_course').submit();
+      document.getElementById('delete_course').action = "index.php?page=controller_course&op=delete";
+  }
+  if (op == 'delete_all') {
+      document.getElementById('delete_all').submit();
+      document.getElementById('delete_all').action = "index.php?page=controller_course&op=delete_all";
+  }
+
+  if (op == 'dummies') {
+      document.getElementById('dummies').submit();
+      document.getElementById('dummies').action = "index.php?page=controller_course&op=dummies";
+  }
+}
