@@ -88,6 +88,7 @@ function validate_dateend_course(texto) {
 // }
 
 function validate() {
+  // cambiar a validate(op) porque hay que cambiar los formularios de udpate y create, el boton ya no es update, es button y redirige a aqui
   var check = true;
 
   var v_id_course = document.getElementById("id_course").value;
@@ -186,4 +187,15 @@ function validate() {
     document.getElementById("error_dateend_course").innerHTML = "";
   }
   return check;
+  // quitar el return y gracias a cambiar los botones hay que hacer if check
+//   if (check){
+//     if (op == 'create'){
+//         document.getElementById('alta_course').submit();
+//         document.getElementById('alta_course').action = "index.php?page=controller_course&op=create";
+//     }
+//     if (op == 'update'){
+//         document.getElementById('update_course').submit();
+//         document.getElementById('update_course').action = "index.php?page=controller_course&op=update";
+//     }
+// }
 }

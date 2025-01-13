@@ -38,7 +38,9 @@
             
             $check = true;
             
+            // modificar i que se quede solo el if($_POST)
             if (isset($_POST['create'])){
+                // if($_POST){
                 // $data = 'hola create post course';
                 // die('<script>console.log('.json_encode( $data ) .');</script>');
                 // die('<script>console.log('.json_encode( $_POST ) .');</script>');
@@ -78,6 +80,7 @@
             include("module/course/model/validate.php");
             $check = true;
     
+            // modificar i que se quede solo el if($_POST)
             if ($_POST) {
                 // $data = 'hola update post households';
                 // die('<script>console.log('.json_encode( $data ) .');</script>');
