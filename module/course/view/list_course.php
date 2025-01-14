@@ -80,7 +80,8 @@
         display: flex;
         justify-content: center;
         gap: 20px;
-        margin-bottom: 30px; /* Espacio extra entre botones y la tabla */
+        margin-bottom: 30px;
+        /* Espacio extra entre botones y la tabla */
     }
 
     .button-icon {
@@ -95,7 +96,13 @@
         color: rgb(243, 160, 16);
         font-size: 14px;
         font-weight: bold;
-        transition: all 0.3s ease;
+        transition: transform 0.3s ease;
+        /* Añadimos transición para el efecto */
+    }
+
+    .button-icon:hover img {
+        transform: scale(1.3);
+        /* Aumenta el tamaño del icono */
     }
 
     .button-icon img {

@@ -1,4 +1,5 @@
 <?php
+if(isset($_GET['page'])){
 switch ($_GET['page']) {
 	case "homepage";
 		include("module/inicio/view/inicio.php");
@@ -27,4 +28,7 @@ switch ($_GET['page']) {
 	default;
 		include("module/inicio/view/inicio.php");
 		break;
+}
+}else{
+	include("module/inicio/view/inicio.php");
 }
