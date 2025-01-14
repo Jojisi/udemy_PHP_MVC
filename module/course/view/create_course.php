@@ -213,7 +213,7 @@ $error_dateend_course = "";
 
             <tr>
                 <td>Start date: </td>
-                <td><input id="datestart_course" type="date" name="datestart_course" placeholder="start date of the course" value="" /></td>
+                <td><input id="fecha" type="text" name="datestart_course" placeholder="start date of the course" value="" /></td>
                 <td>
                     <font color="red">
                         <span id="error_datestart_course" class="error">
@@ -228,7 +228,7 @@ $error_dateend_course = "";
 
             <tr>
                 <td>End date: </td>
-                <td><input id="dateend_course" type="date" name="dateend_course" placeholder="end date of the course" value="" /></td>
+                <td><input id="fecha" type="text" name="dateend_course" placeholder="end date of the course" value="" /></td>
                 <td>
                     <font color="red">
                         <span id="error_dateend_course" class="error">
