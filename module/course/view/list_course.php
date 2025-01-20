@@ -43,7 +43,8 @@
                     echo '<td width=125>' . $row['price_course'] . ' €</td>';
                     echo '<td width=125>' . $row['language_course'] . '</td>';
                     echo '<td width=350>';
-                    echo '<a class="Button_blue" href="index.php?page=controller_course&op=read&id=' . $row['id_course'] . '">Read</a>';
+                    // echo '<a class="Button_blue" href="index.php?page=controller_course&op=read&id=' . $row['id_course'] . '">Read</a>';
+                    print("<div class='course Button_blue' id_course='" . $row['id_course'] . "'>Read</div>");  //READ
                     echo '&nbsp;';
                     echo '<a class="Button_green" href="index.php?page=controller_course&op=update&id=' . $row['id_course'] . '">Update</a>';
                     echo '&nbsp;';
@@ -56,6 +57,25 @@
         </table>
     </div>
 </div>
+
+<!-- modal window -->
+<div id="modal-overlay"></div>
+<div id="course_modal">
+  <h2>Course Details</h2>
+  <p><strong>ID:</strong> <span id="id_course"></span></p>
+  <p><strong>Name:</strong> <span id="name_course"></span></p>
+  <p><strong>Description:</strong> <span id="description_course"></span></p>
+  <p><strong>Category:</strong> <span id="category_course"></span></p>
+  <p><strong>Level:</strong> <span id="level_course"></span></p>
+  <p><strong>Price:</strong> <span id="price_course"></span></p>
+  <p><strong>Language:</strong> <span id="language_course"></span></p>
+  <p><strong>Start Date:</strong> <span id="datestart_course"></span></p>
+  <p><strong>End Date:</strong> <span id="dateend_course"></span></p>
+  <div class="modal-buttons">
+    <button id="close-modal">Close</button>
+  </div>
+</div>
+
 
 <style>
     /* Estilos generales */

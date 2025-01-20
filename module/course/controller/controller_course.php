@@ -1,8 +1,8 @@
 <?php
 // $data = 'hola crtl course';
 // die('<script>console.log('.json_encode( $data ) .');</script>');
-
-include("module/course/model/DAOCourse.php");
+$path = $_SERVER['DOCUMENT_ROOT'] . '/udemy_PHP_MVC/';
+include($path . "module/course/model/DAOCourse.php");
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -229,6 +229,28 @@ switch ($_GET['op']) {
         }
 
         include("module/course/view/dummies_course.php");
+        break;
+
+    case 'read_modal':
+        //echo $_GET["modal"]; 
+        //exit;
+
+        try {
+            $daocourse = new DAOCourse();
+            $rdo = $daocourse->select_course($_GET['modal']);
+        } catch (Exception $e) {
+            echo json_encode("error");
+            exit;
+        }
+        if (!$rdo) {
+            echo json_encode("error");
+            exit;
+        } else {
+            $course = get_object_vars($rdo);
+            echo json_encode($course);
+            //echo json_encode("error");
+            exit;
+        }
         break;
 
     default;

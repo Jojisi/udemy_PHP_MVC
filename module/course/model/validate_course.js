@@ -218,3 +218,39 @@ function validate_others(op) {
       document.getElementById('dummies').action = "index.php?page=controller_course&op=dummies";
   }
 }
+
+$(document).ready(function () {
+  $('.course').click(function () {
+    var id = this.getAttribute('id_course');
+
+    $.get("module/course/controller/controller_course.php?op=read_modal&modal=" + id, function (data, status) {
+      var json = JSON.parse(data);
+
+      if (json === 'error') {
+        window.location.href = 'index.php?page=503';
+      } else {
+        // Actualiza los datos en el modal
+        $("#id_course").text(json.id_course);
+        $("#name_course").text(json.name_course);
+        $("#description_course").text(json.description_course);
+        $("#category_course").text(json.category_course);
+        $("#level_course").text(json.level_course);
+        $("#price_course").text(json.price_course);
+        $("#language_course").text(json.language_course);
+        $("#datestart_course").text(json.datestart_course);
+        $("#dateend_course").text(json.dateend_course);
+
+        // Muestra el modal
+        $("#modal-overlay").fadeIn();
+        $("#course_modal").fadeIn();
+      }
+    });
+  });
+
+  // Cerrar el modal
+  $("#modal-overlay, #close-modal").click(function () {
+    $("#modal-overlay").fadeOut();
+    $("#course_modal").fadeOut();
+  });
+});
+
