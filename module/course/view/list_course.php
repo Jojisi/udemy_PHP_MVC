@@ -67,7 +67,7 @@
   <p><strong>Description:</strong> <span id="description_course"></span></p>
   <p><strong>Category:</strong> <span id="category_course"></span></p>
   <p><strong>Level:</strong> <span id="level_course"></span></p>
-  <p><strong>Price:</strong> <span id="price_course"></span></p>
+  <p><strong>Price:</strong> <span id="price_course"></span>€</p>
   <p><strong>Language:</strong> <span id="language_course"></span></p>
   <p><strong>Start Date:</strong> <span id="datestart_course"></span></p>
   <p><strong>End Date:</strong> <span id="dateend_course"></span></p>
@@ -75,6 +75,15 @@
     <button id="close-modal">Close</button>
   </div>
 </div>
+
+<!-- <section id="course_modal">
+    <div id="details_course" hidden>
+        <div id="details">
+            <div id="container">
+            </div>
+        </div>
+    </div>
+</section> -->
 
 
 <style>

@@ -253,6 +253,28 @@ switch ($_GET['op']) {
         }
         break;
 
+        // case 'read_modal':
+        //     //echo $_GET["modal"]; 
+        //     //exit;
+    
+        //     try {
+        //         $daocourse = new DAOCourse();
+        //         $rdo = $daocourse->select_course($_GET['id']);
+        //     } catch (Exception $e) {
+        //         echo json_encode("error");
+        //         exit;
+        //     }
+        //     if (!$rdo) {
+        //         echo json_encode("error");
+        //         exit;
+        //     } else {
+        //         $course = get_object_vars($rdo);
+        //         echo json_encode($course);
+        //         //echo json_encode("error");
+        //         exit;
+        //     }
+        //     break;
+
     default;
         include("view/inc/error404.php");
         break;

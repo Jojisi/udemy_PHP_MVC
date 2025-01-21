@@ -254,3 +254,54 @@ $(document).ready(function () {
   });
 });
 
+
+// function showModal(title_courses, id) {
+//   $("#details_course").show();
+//   $("#course_modal").dialog({
+//       title: title_courses,
+//       closeText: "",
+//       width: 850,
+//       height: 500,
+//       resizable: "false",
+//       modal: "true",
+//       hide: "fold",
+//       show: "fold",
+//       buttons: {
+//           Update: function () {
+//               window.location.href = 'index.php?page=controller_course&op=update&id_course=' + id;
+//           },
+//           Delete: function () {
+//               window.location.href = 'index.php?page=controller_course&op=delete&id_course=' + id;
+//           }
+//       }
+//   });
+// }
+
+// function loadContentModal() {
+//   $('.course').click(function () {
+//       var id = this.getAttribute('id_course');
+//       ajaxPromise('GET', 'JSON', 'module/course/controller/controller_course.php?op=read_modal&id=' + id)
+//           .then(function (data) {
+//               // var data = JSON.parse(data);
+//               $('<div></div>').attr('id', 'details_course', 'type', 'hidden').appendTo('#course_modal');
+//               $('<div></div>').attr('id', 'container').appendTo('#details_course');
+//               $('#container').empty();
+//               $('<div></div>').attr('id', 'course_content').appendTo('#container');
+//               $('#course_content').html(function () {
+//                   var content = "";
+//                   for (row in data) {
+//                       content += '<br><span>' + row + ': <span id =' + row + '>' + data[row] + '</span></span>';
+//                   }
+//                   return content;
+//               });
+//               showModal(title_courses = data.id_course + " " + data.name_course, data.id_course);
+//           })
+//           .catch(function () {
+//               window.location.href = 'index.php?module=errors&op=503&desc=List error';
+//           });
+//   });
+// }
+
+// $(document).ready(function () {
+//   loadContentModal();
+// });
