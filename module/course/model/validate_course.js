@@ -219,89 +219,101 @@ function validate_others(op) {
   }
 }
 
-$(document).ready(function () {
-  $('.course').click(function () {
-    var id = this.getAttribute('id_course');
+// $(document).ready(function () {
+//   $('.course').click(function () {
+//     var id = this.getAttribute('id_course');
 
-    $.get("module/course/controller/controller_course.php?op=read_modal&modal=" + id, function (data, status) {
-      var json = JSON.parse(data);
+//     $.get("module/course/controller/controller_course.php?op=read_modal&modal=" + id, function (data, status) {
+//       var json = JSON.parse(data);
 
-      if (json === 'error') {
-        window.location.href = 'index.php?page=503';
-      } else {
-        // Actualiza los datos en el modal
-        $("#id_course").text(json.id_course);
-        $("#name_course").text(json.name_course);
-        $("#description_course").text(json.description_course);
-        $("#category_course").text(json.category_course);
-        $("#level_course").text(json.level_course);
-        $("#price_course").text(json.price_course);
-        $("#language_course").text(json.language_course);
-        $("#datestart_course").text(json.datestart_course);
-        $("#dateend_course").text(json.dateend_course);
+//       if (json === 'error') {
+//         window.location.href = 'index.php?page=503';
+//       } else {
+//         // Actualiza los datos en el modal
+//         $("#id_course").text(json.id_course);
+//         $("#name_course").text(json.name_course);
+//         $("#description_course").text(json.description_course);
+//         $("#category_course").text(json.category_course);
+//         $("#level_course").text(json.level_course);
+//         $("#price_course").text(json.price_course);
+//         $("#language_course").text(json.language_course);
+//         $("#datestart_course").text(json.datestart_course);
+//         $("#dateend_course").text(json.dateend_course);
 
-        // Muestra el modal
-        $("#modal-overlay").fadeIn();
-        $("#course_modal").fadeIn();
+//         // Muestra el modal
+//         $("#modal-overlay").fadeIn();
+//         $("#course_modal").fadeIn();
+//       }
+//     });
+//   });
+
+//   // Cerrar el modal
+//   $("#modal-overlay, #close-modal").click(function () {
+//     $("#modal-overlay").fadeOut();
+//     $("#course_modal").fadeOut();
+//   });
+// });
+
+
+function showModal(title_courses, id) {
+  $("#details_course").show(); // Asegura que solo el modal actual esté visible
+  $("#course_modal").fadeIn(); // Usamos fadeIn para mostrar el modal suavemente
+
+  // Establecer título del modal
+  $('#modal-title').text(title_courses);
+
+  $("#course_modal").dialog({
+      title: title_courses,
+      width: 850,
+      height: 500,
+      resizable: false,
+      modal: true,
+      hide: "fold",
+      show: "fold",
+      buttons: {
+          Update: function () {
+              window.location.href = `index.php?page=controller_course&op=update&id_course=${id}`;
+          },
+          Delete: function () {
+              if (confirm("Are you sure you want to delete this course?")) {
+                  window.location.href = `index.php?page=controller_course&op=delete&id_course=${id}`;
+              }
+          }
       }
-    });
   });
+}
 
-  // Cerrar el modal
-  $("#modal-overlay, #close-modal").click(function () {
-    $("#modal-overlay").fadeOut();
-    $("#course_modal").fadeOut();
+function loadContentModal() {
+  $('.course').click(function () {
+      var id = this.getAttribute('id_course');
+      ajaxPromise('GET', 'JSON', 'module/course/controller/controller_course.php?op=read_modal&id=' + id)
+          .then(function (data) {
+              // Limpia el contenido previo
+              $('#container').empty();
+              $('<div></div>').attr('id', 'course_content').appendTo('#container');
+
+              // Agrega los datos al modal
+              var content = "";
+              for (row in data) {
+                  content += '<br><span>' + row + ': <span id =' + row + '>' + data[row] + '</span></span>';
+              }
+              $('#course_content').html(content);
+
+              // Muestra el modal
+              showModal(title_courses = data.id_course + " " + data.name_course, data.id_course);
+          })
+          .catch(function () {
+              window.location.href = 'index.php?module=errors&op=503&desc=List error';
+          });
   });
+}
+
+$(document).on('click', '#close-modal', function () {
+  $("#course_modal").fadeOut(); // Ocultar suavemente el modal
+  $('#details_course').hide();
 });
 
 
-// function showModal(title_courses, id) {
-//   $("#details_course").show();
-//   $("#course_modal").dialog({
-//       title: title_courses,
-//       closeText: "",
-//       width: 850,
-//       height: 500,
-//       resizable: "false",
-//       modal: "true",
-//       hide: "fold",
-//       show: "fold",
-//       buttons: {
-//           Update: function () {
-//               window.location.href = 'index.php?page=controller_course&op=update&id_course=' + id;
-//           },
-//           Delete: function () {
-//               window.location.href = 'index.php?page=controller_course&op=delete&id_course=' + id;
-//           }
-//       }
-//   });
-// }
-
-// function loadContentModal() {
-//   $('.course').click(function () {
-//       var id = this.getAttribute('id_course');
-//       ajaxPromise('GET', 'JSON', 'module/course/controller/controller_course.php?op=read_modal&id=' + id)
-//           .then(function (data) {
-//               // var data = JSON.parse(data);
-//               $('<div></div>').attr('id', 'details_course', 'type', 'hidden').appendTo('#course_modal');
-//               $('<div></div>').attr('id', 'container').appendTo('#details_course');
-//               $('#container').empty();
-//               $('<div></div>').attr('id', 'course_content').appendTo('#container');
-//               $('#course_content').html(function () {
-//                   var content = "";
-//                   for (row in data) {
-//                       content += '<br><span>' + row + ': <span id =' + row + '>' + data[row] + '</span></span>';
-//                   }
-//                   return content;
-//               });
-//               showModal(title_courses = data.id_course + " " + data.name_course, data.id_course);
-//           })
-//           .catch(function () {
-//               window.location.href = 'index.php?module=errors&op=503&desc=List error';
-//           });
-//   });
-// }
-
-// $(document).ready(function () {
-//   loadContentModal();
-// });
+$(document).ready(function () {
+  loadContentModal();
+});

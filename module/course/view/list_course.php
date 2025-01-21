@@ -59,7 +59,7 @@
 </div>
 
 <!-- modal window -->
-<div id="modal-overlay"></div>
+<!-- <div id="modal-overlay"></div>
 <div id="course_modal">
   <h2>Course Details</h2>
   <p><strong>ID:</strong> <span id="id_course"></span></p>
@@ -74,16 +74,17 @@
   <div class="modal-buttons">
     <button id="close-modal">Close</button>
   </div>
-</div>
+</div> -->
 
-<!-- <section id="course_modal">
+<section id="course_modal">
     <div id="details_course" hidden>
         <div id="details">
             <div id="container">
+            <!-- <span id="close-modal">&times;</span> -->
             </div>
         </div>
     </div>
-</section> -->
+</section>
 
 
 <style>
