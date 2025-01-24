@@ -256,14 +256,10 @@ function validate_others(op) {
 
 
 function showModal(title_courses, id) {
-  $("#details_course").show(); // Asegura que solo el modal actual esté visible
-  $("#course_modal").fadeIn(); // Usamos fadeIn para mostrar el modal suavemente
-
-  // Establecer título del modal
-  $('#modal-title').text(title_courses);
-
+  $("#details_course").show();
   $("#course_modal").dialog({
       title: title_courses,
+      closeText: "",
       width: 850,
       height: 500,
       resizable: false,
@@ -272,12 +268,10 @@ function showModal(title_courses, id) {
       show: "fold",
       buttons: {
           Update: function () {
-              window.location.href = `index.php?page=controller_course&op=update&id_course=${id}`;
+            window.location.href = 'index.php?page=controller_course&op=update&id=' + id;
           },
           Delete: function () {
-              if (confirm("Are you sure you want to delete this course?")) {
-                  window.location.href = `index.php?page=controller_course&op=delete&id_course=${id}`;
-              }
+              window.location.href = 'index.php?page=controller_course&op=delete&id=' + id;
           }
       }
   });
@@ -288,18 +282,17 @@ function loadContentModal() {
       var id = this.getAttribute('id_course');
       ajaxPromise('GET', 'JSON', 'module/course/controller/controller_course.php?op=read_modal&id=' + id)
           .then(function (data) {
-              // Limpia el contenido previo
+              $('<div></div>').attr('id', 'details_course').appendTo('#course_modal'); // Asegúrate de que 'details_course' esté dentro del modal
+              $('<div></div>').attr('id', 'container').appendTo('#details_course');
               $('#container').empty();
               $('<div></div>').attr('id', 'course_content').appendTo('#container');
-
-              // Agrega los datos al modal
-              var content = "";
-              for (row in data) {
-                  content += '<br><span>' + row + ': <span id =' + row + '>' + data[row] + '</span></span>';
-              }
-              $('#course_content').html(content);
-
-              // Muestra el modal
+              $('#course_content').html(function () {
+                  var content = "";
+                  for (var row in data) {
+                      content += '<br><span>' + row + ': <span id="' + row + '">' + data[row] + '</span></span>';
+                  }
+                  return content;
+              });
               showModal(title_courses = data.id_course + " " + data.name_course, data.id_course);
           })
           .catch(function () {
@@ -307,12 +300,6 @@ function loadContentModal() {
           });
   });
 }
-
-$(document).on('click', '#close-modal', function () {
-  $("#course_modal").fadeOut(); // Ocultar suavemente el modal
-  $('#details_course').hide();
-});
-
 
 $(document).ready(function () {
   loadContentModal();

@@ -80,7 +80,6 @@
     <div id="details_course" hidden>
         <div id="details">
             <div id="container">
-            <!-- <span id="close-modal">&times;</span> -->
             </div>
         </div>
     </div>

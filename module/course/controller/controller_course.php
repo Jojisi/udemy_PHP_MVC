@@ -76,26 +76,29 @@ switch ($_GET['op']) {
         include("module/course/view/create_course.php");
         break;
 
-    case 'update';
+    case 'update':
         include("module/course/model/validate.php");
         $check = true;
 
-        // modificar i que se quede solo el if($_POST)
         if ($_POST) {
-            // $data = 'hola update post households';
-            // die('<script>console.log('.json_encode( $data ) .');</script>');
-            //$check=validate();
-            $check = true;
-
-            //die('<script>console.log('.json_encode( $check ) .');</script>');
+            // Realizamos la validación si es necesario
+            // $check = validate();
+            $check = true;  // Si ya se valida, establecemos como true
 
             if ($check) {
-                $_SESSION['course'] = $_POST;
-                //die('<script>console.log('.json_encode( $_POST ) .');</script>');
+                $_SESSION['course'] = $_POST; // Guardamos los datos POST en la sesión
+
                 try {
                     $daocourse = new DAOCourse();
-                    $rdo = $daocourse->update_course($_POST);
-                    //die('<script>console.log('.json_encode( $rdo ) .');</script>');
+
+                    // Determinamos si los datos vienen de GET o POST
+                    $id = isset($_GET['id']) ? $_GET['id'] : (isset($_POST['id']) ? $_POST['id'] : null);
+
+                    if ($id !== null) {
+                        $rdo = $daocourse->update_course($_POST); // Actualizamos el curso
+                    } else {
+                        throw new Exception("ID not provided.");
+                    }
                 } catch (Exception $e) {
                     $callback = 'index.php?page=503';
                     die('<script>window.location.href="' . $callback . '";</script>');
@@ -118,8 +121,16 @@ switch ($_GET['op']) {
 
         try {
             $daocourse = new DAOCourse();
-            $rdo = $daocourse->select_course($_GET['id']);
-            $course = get_object_vars($rdo);
+
+            // Obtenemos el ID del curso de GET o POST
+            $id = isset($_GET['id']) ? $_GET['id'] : (isset($_POST['id']) ? $_POST['id'] : null);
+
+            if ($id !== null) {
+                $rdo = $daocourse->select_course($id); // Obtenemos el curso para actualizar
+                $course = get_object_vars($rdo);
+            } else {
+                throw new Exception("ID not provided.");
+            }
         } catch (Exception $e) {
             $callback = 'index.php?page=503';
             die('<script>window.location.href="' . $callback . '";</script>');
@@ -129,9 +140,10 @@ switch ($_GET['op']) {
             $callback = 'index.php?page=503';
             die('<script>window.location.href="' . $callback . '";</script>');
         } else {
-            include("module/course/view/update_course.php");
+            include("module/course/view/update_course.php"); // Incluimos la vista de actualización
         }
         break;
+
 
     case 'read';
         // $data = 'hola crtl course read';
@@ -231,49 +243,49 @@ switch ($_GET['op']) {
         include("module/course/view/dummies_course.php");
         break;
 
-    // case 'read_modal':
-    //     //echo $_GET["modal"]; 
-    //     //exit;
+        // case 'read_modal':
+        //     //echo $_GET["modal"]; 
+        //     //exit;
 
-    //     try {
-    //         $daocourse = new DAOCourse();
-    //         $rdo = $daocourse->select_course($_GET['modal']);
-    //     } catch (Exception $e) {
-    //         echo json_encode("error");
-    //         exit;
-    //     }
-    //     if (!$rdo) {
-    //         echo json_encode("error");
-    //         exit;
-    //     } else {
-    //         $course = get_object_vars($rdo);
-    //         echo json_encode($course);
-    //         //echo json_encode("error");
-    //         exit;
-    //     }
-    //     break;
+        //     try {
+        //         $daocourse = new DAOCourse();
+        //         $rdo = $daocourse->select_course($_GET['modal']);
+        //     } catch (Exception $e) {
+        //         echo json_encode("error");
+        //         exit;
+        //     }
+        //     if (!$rdo) {
+        //         echo json_encode("error");
+        //         exit;
+        //     } else {
+        //         $course = get_object_vars($rdo);
+        //         echo json_encode($course);
+        //         //echo json_encode("error");
+        //         exit;
+        //     }
+        //     break;
 
-        case 'read_modal':
-            //echo $_GET["modal"]; 
-            //exit;
-    
-            try {
-                $daocourse = new DAOCourse();
-                $rdo = $daocourse->select_course($_GET['id']);
-            } catch (Exception $e) {
-                echo json_encode("error");
-                exit;
-            }
-            if (!$rdo) {
-                echo json_encode("error");
-                exit;
-            } else {
-                $course = get_object_vars($rdo);
-                echo json_encode($course);
-                //echo json_encode("error");
-                exit;
-            }
-            break;
+    case 'read_modal':
+        //echo $_GET["modal"]; 
+        //exit;
+
+        try {
+            $daocourse = new DAOCourse();
+            $rdo = $daocourse->select_course($_GET['id']);
+        } catch (Exception $e) {
+            echo json_encode("error");
+            exit;
+        }
+        if (!$rdo) {
+            echo json_encode("error");
+            exit;
+        } else {
+            $course = get_object_vars($rdo);
+            echo json_encode($course);
+            //echo json_encode("error");
+            exit;
+        }
+        break;
 
     default;
         include("view/inc/error404.php");
