@@ -19,7 +19,7 @@
         		});
         	});
 	    </script>
-	    <link href="view/css/style.css" rel="stylesheet" type="text/css" />
+	    <link href="view/css/style-courses.css" rel="stylesheet" type="text/css" />
 	    <script src="module/user/model/validate_user.js"></script>
 
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>

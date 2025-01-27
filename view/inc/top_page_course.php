@@ -19,7 +19,7 @@
 			});
 		});
 	</script>
-	<link href="view/css/style.css" rel="stylesheet" type="text/css" />
+	<link href="view/css/style-courses.css" rel="stylesheet" type="text/css" />
 	<script src="module/course/model/promises.js"></script>
 	<script src="module/course/model/validate_course.js"></script>
 
